@@ -49,7 +49,7 @@ function AddBook() {
     }
     
     if (book.numberOfPages && (isNaN(book.numberOfPages) || parseInt(book.numberOfPages) <= 0)) {
-      tempErrors.numberOfPages = "Number of pages must be a positive number";
+      tempErrors.numberOfPages = "Number of pages should be a positive number";
       isValid = false;
     }
     
