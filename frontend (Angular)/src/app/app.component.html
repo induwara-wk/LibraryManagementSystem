@@ -1,0 +1,16 @@
+
+<nav class="navbar bg-body-tertiary pt-3 pb-3 w-100">
+  <div class="container">
+    <a class="navbar-brand fw-bold fs-2 navbar-head" routerLink="/books">{{ title }}</a>
+    <form class="d-flex" role="search">
+      <div class="actions">
+        <a routerLink="/books/new" class="btn btn-newbook">+ New Book</a>
+      </div>
+    </form>
+  </div>
+</nav>
+
+
+<main>
+  <router-outlet></router-outlet>
+</main>

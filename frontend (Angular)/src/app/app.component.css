@@ -1,0 +1,9 @@
+.btn-newbook {
+  background-color: #636AE8FF;
+  color: white;
+  font-weight: 500;
+}
+
+.btn-newbook:hover {
+  background-color: #2C35E0FF;
+}
