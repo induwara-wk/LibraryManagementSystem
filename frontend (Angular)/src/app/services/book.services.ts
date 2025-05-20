@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Book } from '../models/book';
 
@@ -20,11 +20,17 @@ export class BookService {
   }
 
   createBook(book: Book): Observable<Book> {
-    return this.http.post<Book>(this.apiUrl, book);
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+    return this.http.post<Book>(this.apiUrl, book, { headers });
   }
 
   updateBook(id: number, book: Book): Observable<Book> {
-    return this.http.put<Book>(`${this.apiUrl}/${id}`, book);
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+    return this.http.put<Book>(`${this.apiUrl}/${id}`, book, { headers });
   }
 
   deleteBook(id: number): Observable<void> {
@@ -37,6 +43,9 @@ export class BookService {
     author?: string;
     isbn?: string;
   }): Observable<Book[]> {
-    return this.http.post<Book[]>(`${this.apiUrl}/search`, searchParams);
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+    return this.http.post<Book[]>(`${this.apiUrl}/search`, searchParams, { headers });
   }
 }
