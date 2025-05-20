@@ -1,5 +1,6 @@
 package com.induwara.librarymanagement.controller;
 
+import com.induwara.librarymanagement.dto.BookSearchDTO;
 import com.induwara.librarymanagement.model.Book;
 import com.induwara.librarymanagement.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,30 +57,9 @@ public class BookController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-    @GetMapping("/search")
-    public ResponseEntity<List<Book>> searchBooks(@RequestParam String query) {
-        List<Book> books = bookService.searchBooks(query);
+    @PostMapping("/search")
+    public ResponseEntity<List<Book>> advancedSearch(@RequestBody BookSearchDTO searchDTO) {
+        List<Book> books = bookService.advancedSearch(searchDTO);
         return new ResponseEntity<>(books, HttpStatus.OK);
-    }
-
-    @GetMapping("/search/title")
-    public ResponseEntity<List<Book>> searchByTitle(@RequestParam String title) {
-        List<Book> books = bookService.findByTitle(title);
-        return new ResponseEntity<>(books, HttpStatus.OK);
-    }
-
-    @GetMapping("/search/author")
-    public ResponseEntity<List<Book>> searchByAuthor(@RequestParam String author) {
-        List<Book> books = bookService.findByAuthor(author);
-        return new ResponseEntity<>(books, HttpStatus.OK);
-    }
-
-    @GetMapping("/search/isbn")
-    public ResponseEntity<Book> searchByIsbn(@RequestParam String isbn) {
-        Book book = bookService.findByIsbn(isbn);
-        if (book != null) {
-            return new ResponseEntity<>(book, HttpStatus.OK);
-        }
-        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 }
