@@ -6,10 +6,8 @@ public class BookSearchDTO {
     private String author;
     private String isbn;
 
-
     public BookSearchDTO() {
     }
-
 
     public String getQuery() {
         return query;
