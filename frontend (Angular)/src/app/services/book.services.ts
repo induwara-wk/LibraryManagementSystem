@@ -31,23 +31,12 @@ export class BookService {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
 
-  searchBooks(query: string): Observable<Book[]> {
-    const params = new HttpParams().set('query', query);
-    return this.http.get<Book[]>(`${this.apiUrl}/search`, { params });
-  }
-
-  searchByTitle(title: string): Observable<Book[]> {
-    const params = new HttpParams().set('title', title);
-    return this.http.get<Book[]>(`${this.apiUrl}/search/title`, { params });
-  }
-
-  searchByAuthor(author: string): Observable<Book[]> {
-    const params = new HttpParams().set('author', author);
-    return this.http.get<Book[]>(`${this.apiUrl}/search/author`, { params });
-  }
-
-  searchByIsbn(isbn: string): Observable<Book> {
-    const params = new HttpParams().set('isbn', isbn);
-    return this.http.get<Book>(`${this.apiUrl}/search/isbn`, { params });
+  advancedSearch(searchParams: {
+    query?: string;
+    title?: string;
+    author?: string;
+    isbn?: string;
+  }): Observable<Book[]> {
+    return this.http.post<Book[]>(`${this.apiUrl}/search`, searchParams);
   }
 }
