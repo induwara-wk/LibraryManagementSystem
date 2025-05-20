@@ -29,7 +29,7 @@ export class BookDetailComponent implements OnInit {
   loadBook(): void {
     this.loading = true;
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    
+
     this.bookService.getBookById(id).subscribe({
       next: (data) => {
         this.book = data;
@@ -45,7 +45,7 @@ export class BookDetailComponent implements OnInit {
 
   deleteBook(): void {
     if (!this.book || !this.book.id) return;
-    
+
     if (confirm('Are you sure you want to delete this book?')) {
       this.bookService.deleteBook(this.book.id).subscribe({
         next: () => {

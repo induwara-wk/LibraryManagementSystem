@@ -7,3 +7,62 @@
 .btn-newbook:hover {
   background-color: #2C35E0FF;
 }
+
+.navbar-head {
+  font-weight: 700;
+  color: #333;
+  font-size: 28px;
+}
+
+.dropdown-toggle {
+  background-color: white;
+  border-color: #e5e7eb;
+  color: #6b7280;
+}
+
+.form-control {
+  border-color: #e5e7eb;
+  padding: 0.5rem 1rem;
+}
+
+.form-control:focus {
+  border-color: #6366F1;
+  box-shadow: 0 0 0 0.25rem rgba(99, 102, 241, 0.25);
+}
+
+.btn-primary {
+  background-color: #6366F1;
+  border-color: #6366F1;
+}
+
+.btn-primary:hover {
+  background-color: #4F46E5;
+  border-color: #4F46E5;
+}
+
+.refresh-btn {
+  background-color: #f3f4f6;
+  border-color: #e5e7eb;
+  color: #6b7280;
+}
+
+.logout-btn {
+  background-color: #f3f4f6;
+  border-color: #e5e7eb;
+  color: #6b7280;
+  display: flex;
+  align-items: center;
+}
+
+.btn-newbook {
+  background-color: #6366F1;
+  border-color: #6366F1;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 6px;
+}
+
+.btn-newbook:hover {
+  background-color: #4F46E5;
+  border-color: #4F46E5;
+}
