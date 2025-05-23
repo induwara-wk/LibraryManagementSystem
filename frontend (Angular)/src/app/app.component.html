@@ -1,15 +1,42 @@
-
-<nav class="navbar bg-body-tertiary pt-3 pb-3 w-100">
-  <div class="container">
+<!-- Main Navigation Bar - Hidden on home, login, and register pages -->
+<nav *ngIf="!hideNavbar" class="navbar bg-body-tertiary pt-3 pb-3 w-100">
+  <div class="container" style="max-width: 1200px;">
     <a class="navbar-brand fw-bold fs-2 navbar-head" routerLink="/books">{{ title }}</a>
-    <form class="d-flex" role="search">
-      <div class="actions">
-        <a routerLink="/books/new" class="btn btn-newbook">+ New Book</a>
+    
+    <div class="d-flex align-items-center">
+      <!-- Filter Dropdown -->
+      <div class="dropdown me-3">
+        <button class="btn btn-outline-secondary dropdown-toggle px-4" type="button" id="filterDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+          {{ selectedField }}
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="filterDropdown">
+          <li><a class="dropdown-item" (click)="setSearchField('All')">All</a></li>
+          <li><a class="dropdown-item" (click)="setSearchField('title')">Title</a></li>
+          <li><a class="dropdown-item" (click)="setSearchField('author')">Author</a></li>
+          <li><a class="dropdown-item" (click)="setSearchField('isbn')">ISBN</a></li>
+        </ul>
       </div>
-    </form>
+      
+      <!-- Search Box -->
+      <div class="input-group me-3" style="width: 300px;">
+        <input type="text" class="form-control" placeholder="Search..." aria-label="Search" [(ngModel)]="searchTerm">
+        <button class="btn btn-primary" type="button" (click)="searchBooks()">
+          <i class="bi bi-search"></i>
+        </button>
+      </div>
+      
+      <!-- Refresh Button -->
+      <button class="btn btn-outline-light refresh-btn me-3" type="button" (click)="refreshBooks()">
+        <i class="bi bi-arrow-clockwise"></i>
+      </button>
+      
+      <!-- Logout Button -->
+      <button class="btn btn-outline-light logout-btn" type="button" (click)="logout()">
+        <i class="bi bi-box-arrow-right me-1"></i> Logout
+      </button>
+    </div>
   </div>
 </nav>
-
 
 <main>
   <router-outlet></router-outlet>

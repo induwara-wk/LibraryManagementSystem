@@ -4,7 +4,6 @@ import { Book } from '../../models/book';
 import { BookService } from '../../services/book.services';
 import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-book-list',
@@ -29,7 +28,7 @@ export class BookListComponent implements OnInit {
   loadBooks(): void {
     this.loading = true;
     this.error = null;
-    
+
     this.bookService.getAllBooks().subscribe({
       next: (data) => {
         this.books = data;
@@ -52,46 +51,33 @@ export class BookListComponent implements OnInit {
     this.loading = true;
     this.error = null;
 
-    if (this.searchType === 'isbn') {
-      this.bookService.searchByIsbn(this.searchQuery).subscribe({
-        next: (data: Book) => {
-          this.books = data ? [data] : [];
-          this.loading = false;
-        },
-        error: (err: Error) => {
-          if (err.message?.includes('404') || err.message?.includes('Not Found')) {
-            this.books = [];
-            this.error = `No book found with ISBN: ${this.searchQuery}`;
-          } else {
-            this.error = 'Failed to search books. Please try again later.';
-          }
-          this.loading = false;
-          console.error('Error searching by ISBN:', err);
-        }
-      });
-      return;
-    }
+    // Create search parameters based on the search type
+    const searchParams: any = {};
 
-    // Handle other search types
-    let searchObservable;
-    
     switch (this.searchType) {
       case 'title':
-        searchObservable = this.bookService.searchByTitle(this.searchQuery);
+        searchParams.title = this.searchQuery;
         break;
       case 'author':
-        searchObservable = this.bookService.searchByAuthor(this.searchQuery);
+        searchParams.author = this.searchQuery;
+        break;
+      case 'isbn':
+        searchParams.isbn = this.searchQuery;
         break;
       default:
-        searchObservable = this.bookService.searchBooks(this.searchQuery);
+        searchParams.query = this.searchQuery;
     }
 
-    (searchObservable as Observable<Book[]>).subscribe({
+    // Use the new advancedSearch method
+    this.bookService.advancedSearch(searchParams).subscribe({
       next: (data: Book[]) => {
         this.books = data;
+        if (data.length === 0) {
+          this.error = `No books found matching your search criteria.`;
+        }
         this.loading = false;
       },
-      error: (err: Error) => {
+      error: (err) => {
         this.error = 'Failed to search books. Please try again later.';
         this.loading = false;
         console.error('Error searching books:', err);
@@ -111,7 +97,7 @@ export class BookListComponent implements OnInit {
         next: () => {
           this.books = this.books.filter(book => book.id !== id);
         },
-        
+
         error: (err) => {
           console.error('Error deleting book:', err);
           alert('Failed to delete book. Please try again later.');

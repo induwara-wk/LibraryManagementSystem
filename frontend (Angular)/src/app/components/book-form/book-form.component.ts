@@ -62,8 +62,20 @@ export class BookFormComponent implements OnInit {
     this.loading = true;
     this.error = null;
     
+    const bookToSave: Book = {
+      title: this.book.title,
+      author: this.book.author,
+      isbn: this.book.isbn,
+      publishedDate: this.book.publishedDate || undefined,
+      numberOfPages: this.book.numberOfPages || undefined
+    };
+    
     if (this.isEditMode && this.book.id) {
-      this.bookService.updateBook(this.book.id, this.book).subscribe({
+      bookToSave.id = this.book.id;
+    }
+    
+    if (this.isEditMode && this.book.id) {
+      this.bookService.updateBook(this.book.id, bookToSave).subscribe({
         next: () => {
           this.loading = false;
           this.router.navigate(['/books', this.book.id]);
@@ -75,7 +87,7 @@ export class BookFormComponent implements OnInit {
         }
       });
     } else {
-      this.bookService.createBook(this.book).subscribe({
+      this.bookService.createBook(bookToSave).subscribe({
         next: (data) => {
           this.loading = false;
           this.router.navigate(['/books', data.id]);
