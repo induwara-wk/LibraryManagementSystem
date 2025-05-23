@@ -28,7 +28,7 @@ export class BookListComponent implements OnInit {
   loadBooks(): void {
     this.loading = true;
     this.error = null;
-    
+
     this.bookService.getAllBooks().subscribe({
       next: (data) => {
         this.books = data;
@@ -53,7 +53,7 @@ export class BookListComponent implements OnInit {
 
     // Create search parameters based on the search type
     const searchParams: any = {};
-    
+
     switch (this.searchType) {
       case 'title':
         searchParams.title = this.searchQuery;
@@ -97,7 +97,7 @@ export class BookListComponent implements OnInit {
         next: () => {
           this.books = this.books.filter(book => book.id !== id);
         },
-        
+
         error: (err) => {
           console.error('Error deleting book:', err);
           alert('Failed to delete book. Please try again later.');
