@@ -16,7 +16,7 @@ export interface BookSearchDTO {
   providedIn: 'root'
 })
 export class BookService {
-  
+
   constructor(private http: HttpClient) { }
 
   getAllBooks(): Observable<Book[]> {
@@ -42,25 +42,25 @@ export class BookService {
   searchBooks(searchParams: any): Observable<Book[]> {
     // Convert to BookSearchDTO format
     const searchDTO: BookSearchDTO = {};
-    
+
     if (searchParams.term) {
-      // If general term provided, use as query
+      // If general term provided, use as query parameters
       searchDTO.query = searchParams.term;
     }
-    
+
     // Add specific field searches if provided
     if (searchParams.title) {
       searchDTO.title = searchParams.title;
     }
-    
+
     if (searchParams.author) {
       searchDTO.author = searchParams.author;
     }
-    
+
     if (searchParams.isbn) {
       searchDTO.isbn = searchParams.isbn;
     }
-    
+
     console.log('Search DTO:', searchDTO);
     return this.http.post<Book[]>(`${API_URL}/search`, searchDTO);
   }
