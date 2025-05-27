@@ -22,7 +22,7 @@ export class DashboardComponent implements OnInit {
   error = '';
   showBookForm = false;
   editingBook: Book | null = null;
-  
+
   // Delete confirmation modal properties
   showDeleteModal = false;
   bookToDelete: { id: number; title: string } | null = null;
@@ -43,7 +43,7 @@ export class DashboardComponent implements OnInit {
   loadBooks(): void {
     this.loading = true;
     this.error = '';
-    
+
     this.bookService.getAllBooks().subscribe({
       next: (books) => {
         this.books = books;
@@ -60,7 +60,7 @@ export class DashboardComponent implements OnInit {
     if (this.searchTerm.trim()) {
       this.loading = true;
       this.error = '';
-      
+
       // Use advanced search based on selected filter
       this.performAdvancedSearch();
     } else {
@@ -143,7 +143,7 @@ export class DashboardComponent implements OnInit {
         // Create blob URL and open in new tab
         const url = window.URL.createObjectURL(blob);
         window.open(url, '_blank');
-        
+
         // Clean up the URL after a delay to allow the browser to load it
         setTimeout(() => {
           window.URL.revokeObjectURL(url);
@@ -209,7 +209,7 @@ export class DashboardComponent implements OnInit {
         this.deleteMessage = `"${this.bookToDelete!.title}" has been deleted successfully!`;
         this.deleteMessageType = 'success';
         this.deleteLoading = false;
-        
+
         setTimeout(() => {
           this.closeDeleteModal();
           this.loadBooks();
@@ -222,9 +222,4 @@ export class DashboardComponent implements OnInit {
       }
     });
   }
-
-  logout(): void {
-    this.authService.logout();
-    this.router.navigate(['/login']);
-  }
-} 
+}

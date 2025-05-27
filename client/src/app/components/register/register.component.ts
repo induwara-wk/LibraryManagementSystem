@@ -24,8 +24,8 @@ export class RegisterComponent {
 
   // Available roles
   roles = [
-    { value: 'user', label: 'User', description: 'Can view and search books' },
-    { value: 'admin', label: 'Administrator', description: 'Can manage books and users' }
+    { value: 'user', label: 'User' },
+    { value: 'admin', label: 'Administrator' }
   ];
 
   constructor(
@@ -75,4 +75,4 @@ export class RegisterComponent {
       }
     });
   }
-} 
+}

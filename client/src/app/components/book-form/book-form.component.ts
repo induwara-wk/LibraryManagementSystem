@@ -58,7 +58,7 @@ export class BookFormComponent implements OnInit {
     this.error = '';
     this.success = '';
 
-    const operation = this.isEditMode 
+    const operation = this.isEditMode
       ? this.bookService.updateBook(this.currentBook.id!, this.currentBook)
       : this.bookService.createBook(this.currentBook);
 
@@ -113,14 +113,14 @@ export class BookFormComponent implements OnInit {
         this.error = 'Only PDF files are allowed';
         return;
       }
-      
+
       // Validate file size (10MB)
       const maxSize = 10 * 1024 * 1024; // 10MB
       if (file.size > maxSize) {
         this.error = 'File size must be less than 10MB';
         return;
       }
-      
+
       this.selectedFile = file;
       this.error = '';
     }
@@ -140,7 +140,7 @@ export class BookFormComponent implements OnInit {
         this.success = 'File uploaded successfully!';
         this.uploadLoading = false;
         this.selectedFile = null;
-        // Reset file input
+
         const fileInput = document.getElementById('fileInput') as HTMLInputElement;
         if (fileInput) {
           fileInput.value = '';
@@ -152,4 +152,4 @@ export class BookFormComponent implements OnInit {
       }
     });
   }
-} 
+}

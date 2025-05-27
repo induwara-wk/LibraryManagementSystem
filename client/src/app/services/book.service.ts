@@ -48,7 +48,7 @@ export class BookService {
     );
   }
 
-  // Advanced search using BookSearchDTO (matches backend exactly)
+  // Advanced search
   advancedSearch(searchDTO: BookSearchDTO): Observable<Book[]> {
     return this.http.post<Book[]>(`${this.apiUrl}/search`, searchDTO).pipe(
       catchError(this.handleError)
@@ -80,7 +80,7 @@ export class BookService {
   uploadBookFile(bookId: number, file: File): Observable<any> {
     const formData = new FormData();
     formData.append('file', file);
-    
+
     return this.http.post(`${this.apiUrl}/${bookId}/upload`, formData).pipe(
       catchError(this.handleError)
     );
@@ -97,8 +97,8 @@ export class BookService {
 
   // View PDF file for a book (returns blob for viewing)
   viewBookFile(bookId: number): Observable<Blob> {
-    return this.http.get(`${this.apiUrl}/${bookId}/download`, { 
-      responseType: 'blob' 
+    return this.http.get(`${this.apiUrl}/${bookId}/download`, {
+      responseType: 'blob'
     }).pipe(
       catchError(this.handleError)
     );
@@ -113,7 +113,7 @@ export class BookService {
 
   private handleError(error: HttpErrorResponse) {
     let errorMessage = 'An unknown error occurred';
-    
+
     if (error.error instanceof ErrorEvent) {
       errorMessage = `Client Error: ${error.error.message}`;
     } else {
@@ -137,7 +137,7 @@ export class BookService {
           errorMessage = `Server Error: ${error.status} - ${error.message}`;
       }
     }
-    
+
     return throwError(() => new Error(errorMessage));
   }
-} 
+}

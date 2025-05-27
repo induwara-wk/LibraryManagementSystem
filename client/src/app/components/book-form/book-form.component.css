@@ -164,23 +164,23 @@
   .modal-container {
     padding: 1rem;
   }
-  
+
   .modal-content {
     max-height: 95vh;
   }
-  
+
   .modal-header,
   .modal-body,
   .modal-footer {
     padding-left: 1rem;
     padding-right: 1rem;
   }
-  
+
   .modal-footer {
     flex-direction: column;
   }
-  
+
   .btn {
     width: 100%;
   }
-} 
+}

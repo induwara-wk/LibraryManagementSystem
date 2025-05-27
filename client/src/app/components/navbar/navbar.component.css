@@ -1,20 +1,19 @@
-/* Navbar custom styles to complement Bootstrap */
 .navbar {
   padding: 1rem 0;
   border-bottom: 1px solid #e5e7eb;
-  background-color: #ffffff !important;
+  background-color: #ffffff ;
 }
 
 .navbar-brand {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #1f2937 !important;
+  color: #1f2937;
   text-decoration: none;
   letter-spacing: 0.05em;
 }
 
 .navbar-brand:hover {
-  color: #1f2937 !important;
+  color: #1f2937 ;
 }
 
 .container-fluid {
@@ -23,11 +22,11 @@
   padding: 0 2rem;
 }
 
-/* Logout button styling */
+/* Logout button */
 .btn-outline-secondary {
-  border: 1px solid #d1d5db;
+  border: 1px solid #f3f4f6;
   color: #6b7280;
-  background-color: #f9fafb;
+  background-color: #f3f4f6;
   border-radius: 8px;
   padding: 0.5rem 1rem;
   font-size: 0.875rem;
@@ -41,11 +40,7 @@
   color: #374151;
 }
 
-.btn-outline-secondary:focus {
-  box-shadow: 0 0 0 0.2rem rgba(156, 163, 175, 0.25);
-}
-
-/* Login/Register buttons for non-authenticated users */
+/* Login and Register buttons */
 .btn-outline-primary {
   border: 1px solid #6366f1;
   color: #6366f1;
@@ -76,21 +71,15 @@
   border-color: #5856eb;
 }
 
-/* Gap between buttons */
-.d-flex.gap-2 {
-  gap: 0.5rem;
-}
-
-/* Responsive adjustments */
 @media (max-width: 768px) {
   .container-fluid {
     padding: 0 1rem;
   }
-  
+
   .navbar-brand {
     font-size: 1.25rem;
   }
-  
+
   .btn-outline-secondary,
   .btn-outline-primary,
   .btn-primary {
@@ -98,11 +87,3 @@
     padding: 0.4rem 0.8rem;
   }
 }
-
-.nav-link.active {
-  font-weight: bold;
-}
-
-.dropdown-item:hover {
-  background-color: #f8f9fa;
-} 
