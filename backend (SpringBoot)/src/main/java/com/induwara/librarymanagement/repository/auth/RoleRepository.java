@@ -1,7 +1,7 @@
 package com.induwara.librarymanagement.repository;
 
-import com.induwara.librarymanagement.model.ERole;
-import com.induwara.librarymanagement.model.Role;
+import com.induwara.librarymanagement.model.auth.ERole;
+import com.induwara.librarymanagement.model.auth.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

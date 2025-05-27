@@ -1,8 +1,8 @@
 package com.induwara.librarymanagement.service.impl;
 
-import com.induwara.librarymanagement.dto.BookSearchDTO;
-import com.induwara.librarymanagement.model.Book;
-import com.induwara.librarymanagement.repository.BookRepository;
+import com.induwara.librarymanagement.dto.book.BookSearchDTO;
+import com.induwara.librarymanagement.model.book.Book;
+import com.induwara.librarymanagement.repository.book.BookRepository;
 import com.induwara.librarymanagement.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

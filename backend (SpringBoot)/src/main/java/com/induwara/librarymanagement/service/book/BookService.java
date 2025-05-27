@@ -1,7 +1,7 @@
 package com.induwara.librarymanagement.service;
 
-import com.induwara.librarymanagement.dto.BookSearchDTO;
-import com.induwara.librarymanagement.model.Book;
+import com.induwara.librarymanagement.dto.book.BookSearchDTO;
+import com.induwara.librarymanagement.model.book.Book;
 
 import java.util.List;
 

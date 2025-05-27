@@ -1,6 +1,6 @@
 package com.induwara.librarymanagement.security.jwt;
 
-import com.induwara.librarymanagement.security.services.UserDetailsImpl;
+import com.induwara.librarymanagement.service.auth.UserDetailsImpl;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;

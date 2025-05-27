@@ -1,6 +1,6 @@
 package com.induwara.librarymanagement.repository;
 
-import com.induwara.librarymanagement.model.User;
+import com.induwara.librarymanagement.model.auth.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

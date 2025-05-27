@@ -1,6 +1,6 @@
 package com.induwara.librarymanagement.security.jwt;
 
-import com.induwara.librarymanagement.security.services.UserDetailsServiceImpl;
+import com.induwara.librarymanagement.service.auth.UserDetailsServiceImpl;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

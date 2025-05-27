@@ -1,7 +1,7 @@
 package com.induwara.librarymanagement.security.services;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.induwara.librarymanagement.model.User;
+import com.induwara.librarymanagement.model.auth.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

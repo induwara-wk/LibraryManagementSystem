@@ -1,6 +1,6 @@
 package com.induwara.librarymanagement.repository;
 
-import com.induwara.librarymanagement.model.Book;
+import com.induwara.librarymanagement.model.book.Book;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

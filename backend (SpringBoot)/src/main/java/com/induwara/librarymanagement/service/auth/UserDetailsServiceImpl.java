@@ -1,7 +1,7 @@
 package com.induwara.librarymanagement.security.services;
 
-import com.induwara.librarymanagement.model.User;
-import com.induwara.librarymanagement.repository.UserRepository;
+import com.induwara.librarymanagement.model.auth.User;
+import com.induwara.librarymanagement.repository.auth.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
