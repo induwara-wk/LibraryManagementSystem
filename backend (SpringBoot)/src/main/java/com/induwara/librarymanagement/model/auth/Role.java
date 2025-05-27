@@ -1,4 +1,4 @@
-package com.induwara.librarymanagement.model;
+package com.induwara.librarymanagement.model.auth;
 
 import jakarta.persistence.*;
 
@@ -17,22 +17,27 @@ public class Role {
     }
 
     public Role(ERole name) {
+
         this.name = name;
     }
 
     public Long getId() {
+
         return id;
     }
 
     public void setId(Long id) {
+
         this.id = id;
     }
 
     public ERole getName() {
+
         return name;
     }
 
     public void setName(ERole name) {
+
         this.name = name;
     }
 } 

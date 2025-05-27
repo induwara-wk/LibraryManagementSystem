@@ -1,4 +1,4 @@
-package com.induwara.librarymanagement.repository;
+package com.induwara.librarymanagement.repository.book;
 
 import com.induwara.librarymanagement.model.book.Book;
 import org.springframework.data.jpa.repository.JpaRepository;

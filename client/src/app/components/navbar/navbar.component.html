@@ -1,0 +1,19 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold text-dark" routerLink="/dashboard">
+      VERSE
+    </a>
+    
+    <div class="navbar-nav ms-auto">
+      <button *ngIf="authService.isLoggedIn()" class="btn btn-outline-secondary" (click)="logout()">
+        <i class="fas fa-sign-out-alt me-1"></i> Logout
+      </button>
+      
+      <!-- Login/Register links for non-authenticated users -->
+      <div *ngIf="!authService.isLoggedIn()" class="d-flex gap-2">
+        <a class="btn btn-outline-primary" routerLink="/login">Login</a>
+        <a class="btn btn-primary" routerLink="/register">Register</a>
+      </div>
+    </div>
+  </div>
+</nav> 

@@ -1,4 +1,4 @@
-package com.induwara.librarymanagement.dto;
+package com.induwara.librarymanagement.dto.book;
 
 public class BookSearchDTO {
     private String query;
@@ -10,18 +10,22 @@ public class BookSearchDTO {
     }
 
     public String getQuery() {
+
         return query;
     }
 
     public String getTitle() {
+
         return title;
     }
 
     public String getAuthor() {
+
         return author;
     }
 
     public String getIsbn() {
+
         return isbn;
     }
 } 

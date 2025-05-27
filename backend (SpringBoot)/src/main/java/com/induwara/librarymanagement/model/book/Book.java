@@ -1,4 +1,4 @@
-package com.induwara.librarymanagement.model;
+package com.induwara.librarymanagement.model.book;
 
 import jakarta.persistence.*;
 import java.time.LocalDate;
@@ -25,6 +25,9 @@ public class Book {
 
     @Column(name = "number_of_pages")
     private Integer numberOfPages;
+
+    @Column(name = "file_path")
+    private String filePath;
 
     public Book() {
     }
@@ -83,5 +86,13 @@ public class Book {
 
     public void setNumberOfPages(Integer numberOfPages) {
         this.numberOfPages = numberOfPages;
+    }
+
+    public String getFilePath() {
+        return filePath;
+    }
+
+    public void setFilePath(String filePath) {
+        this.filePath = filePath;
     }
 }

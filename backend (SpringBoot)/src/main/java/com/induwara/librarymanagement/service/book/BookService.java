@@ -1,4 +1,4 @@
-package com.induwara.librarymanagement.service;
+package com.induwara.librarymanagement.service.book;
 
 import com.induwara.librarymanagement.dto.book.BookSearchDTO;
 import com.induwara.librarymanagement.model.book.Book;

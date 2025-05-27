@@ -1,4 +1,4 @@
-package com.induwara.librarymanagement.dto;
+package com.induwara.librarymanagement.dto.auth;
 
 import jakarta.validation.constraints.NotBlank;
 

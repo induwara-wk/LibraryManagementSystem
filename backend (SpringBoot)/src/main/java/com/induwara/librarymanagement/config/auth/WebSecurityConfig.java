@@ -1,8 +1,8 @@
-package com.induwara.librarymanagement.config;
+package com.induwara.librarymanagement.config.auth;
 
-import com.induwara.librarymanagement.security.jwt.AuthEntryPointJwt;
-import com.induwara.librarymanagement.security.jwt.AuthTokenFilter;
-import com.induwara.librarymanagement.security.services.UserDetailsServiceImpl;
+import com.induwara.librarymanagement.service.auth.jwt.AuthEntryPointJwt;
+import com.induwara.librarymanagement.service.auth.jwt.AuthTokenFilter;
+import com.induwara.librarymanagement.service.auth.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -27,11 +27,15 @@ import java.util.List;
 @Configuration
 @EnableMethodSecurity
 public class WebSecurityConfig {
-    @Autowired
-    UserDetailsServiceImpl userDetailsService;
+
+    private final UserDetailsServiceImpl userDetailsService;
+    private final AuthEntryPointJwt unauthorizedHandler;
 
     @Autowired
-    private AuthEntryPointJwt unauthorizedHandler;
+    public WebSecurityConfig(UserDetailsServiceImpl userDetailsService, AuthEntryPointJwt unauthorizedHandler) {
+        this.userDetailsService = userDetailsService;
+        this.unauthorizedHandler = unauthorizedHandler;
+    }
 
     @Bean
     public AuthTokenFilter authenticationJwtTokenFilter() {
@@ -81,7 +85,7 @@ public class WebSecurityConfig {
             .authorizeHttpRequests(auth -> 
                 auth.requestMatchers("/api/auth/signup").permitAll()
                     .requestMatchers("/api/auth/signin").permitAll()
-                    .requestMatchers("/api/test/**").permitAll()  // If you have test endpoints
+                    .requestMatchers("/api/test/**").permitAll()
                     .anyRequest().authenticated()
             );
         

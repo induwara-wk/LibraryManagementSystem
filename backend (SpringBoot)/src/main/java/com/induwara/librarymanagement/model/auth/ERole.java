@@ -1,4 +1,4 @@
-package com.induwara.librarymanagement.model;
+package com.induwara.librarymanagement.model.auth;
  
 public enum ERole {
     ROLE_USER,

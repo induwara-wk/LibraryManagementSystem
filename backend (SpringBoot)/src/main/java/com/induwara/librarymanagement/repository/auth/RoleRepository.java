@@ -1,4 +1,4 @@
-package com.induwara.librarymanagement.repository;
+package com.induwara.librarymanagement.repository.auth;
 
 import com.induwara.librarymanagement.model.auth.ERole;
 import com.induwara.librarymanagement.model.auth.Role;
@@ -10,4 +10,4 @@ import java.util.Optional;
 @Repository
 public interface RoleRepository extends JpaRepository<Role, Long> {
     Optional<Role> findByName(ERole name);
-} 
+}
