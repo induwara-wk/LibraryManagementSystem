@@ -1,4 +1,4 @@
-package com.induwara.librarymanagement.config.auth;
+package com.induwara.librarymanagement.config;
 
 import com.induwara.librarymanagement.model.auth.ERole;
 import com.induwara.librarymanagement.model.auth.Role;

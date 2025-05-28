@@ -1,4 +1,4 @@
-package com.induwara.librarymanagement.config.auth;
+package com.induwara.librarymanagement.config;
 
 import com.induwara.librarymanagement.service.auth.jwt.AuthEntryPointJwt;
 import com.induwara.librarymanagement.service.auth.jwt.AuthTokenFilter;
@@ -65,7 +65,7 @@ public class WebSecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(List.of("http://localhost:4200"));
+        configuration.setAllowedOrigins(List.of("http://localhost:3000", "http://localhost:4200"));
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(Arrays.asList("Authorization", "Content-Type", "X-Requested-With"));
         configuration.setAllowCredentials(true);
@@ -85,7 +85,6 @@ public class WebSecurityConfig {
             .authorizeHttpRequests(auth -> 
                 auth.requestMatchers("/api/auth/signup").permitAll()
                     .requestMatchers("/api/auth/signin").permitAll()
-                    .requestMatchers("/api/test/**").permitAll()
                     .anyRequest().authenticated()
             );
         

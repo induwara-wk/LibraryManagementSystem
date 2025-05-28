@@ -135,7 +135,6 @@ public class BookController {
                                 "attachment; filename=\"" + book.getTitle() + ".pdf\"")
                         .body(resource);
             } else {
-                // File doesn't exist, clean up the database
                 book.setFilePath(null);
                 bookService.updateBook(id, book);
                 return ResponseEntity.notFound().build();
@@ -161,7 +160,6 @@ public class BookController {
             boolean exists = java.nio.file.Files.exists(filePath) && java.nio.file.Files.isReadable(filePath);
             
             if (!exists) {
-                // File doesn't exist, clean up the database
                 book.setFilePath(null);
                 bookService.updateBook(id, book);
             }

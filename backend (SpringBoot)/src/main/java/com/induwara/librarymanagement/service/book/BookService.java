@@ -24,7 +24,6 @@ public interface BookService {
     List<Book> findByAuthor(String author);
 
     Book findByIsbn(String isbn);
-    
-    // New method for advanced search using DTO
+
     List<Book> advancedSearch(BookSearchDTO searchDTO);
 }
