@@ -1,0 +1,319 @@
+.container-fluid {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Header styling */
+h2.fw-bold {
+  font-size: 2rem;
+  color: #1a1a1a;
+  margin-bottom: 0;
+}
+
+/* Filter dropdown styling */
+.filter-select {
+  min-width: 120px;
+  max-width: 140px;
+}
+
+/* Search input styling */
+.form-control {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  font-size: 0.95rem;
+  flex: 1;
+}
+
+.form-control:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 0.2rem rgba(99, 102, 241, 0.25);
+}
+
+/* Search and refresh buttons */
+.d-flex.gap-2 .btn {
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+
+/* Search button */
+.d-flex.gap-2 .btn-primary {
+  background-color: #6366f1;
+  border-color: #6366f1;
+  color: white;
+}
+
+.d-flex.gap-2 .btn-primary:hover {
+  background-color: #5856eb;
+  border-color: #5856eb;
+}
+
+/* Refresh button */
+.d-flex.gap-2 .btn-outline-secondary {
+  border: 1px solid #e0e0e0;
+  background-color: #f9fafb;
+  color: #6b7280;
+}
+
+.d-flex.gap-2 .btn-outline-secondary:hover {
+  background-color: #f3f4f6;
+  border-color: #d1d5db;
+  color: #374151;
+}
+
+/* New book button */
+.btn-primary {
+  background-color: #6366f1;
+  border-color: #6366f1;
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+  font-weight: 500;
+}
+
+.btn-primary:hover {
+  background-color: #5856eb;
+  border-color: #5856eb;
+}
+
+/* Card styling */
+.card {
+  border-radius: 12px;
+  border: 1px solid #f0f0f0;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+/* Table styling */
+.table {
+  font-size: 0.95rem;
+}
+
+.table thead th {
+  border-bottom: 1px solid #e5e7eb;
+  background-color: #f9fafb;
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.025em;
+  color: #6b7280;
+  padding: 1rem 1.5rem;
+}
+
+.table tbody td {
+  border-bottom: 1px solid #f3f4f6;
+  padding: 1rem 1.5rem;
+  vertical-align: middle;
+}
+
+.table tbody tr:hover {
+  background-color: #f9fafb;
+}
+
+.table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Action buttons */
+.btn-group .btn {
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  margin-right: 0.5rem;
+}
+
+.btn-group .btn:last-child {
+  margin-right: 0;
+}
+
+.btn-outline-primary {
+  color: #4850E4FF;
+  border-color: #4850E4FF;
+}
+
+.btn-outline-primary:hover {
+  background-color: #2C35E0FF;
+  border-color: #2C35E0FF;
+  color: white;
+}
+
+.btn-outline-info {
+  color: #197DCAFF;
+  border-color: #197DCAFF;
+}
+
+.btn-outline-info:hover {
+  background-color: #166DB0FF;
+  border-color: #166DB0FF;
+  color: white;
+}
+
+.btn-outline-danger {
+  color: #C12126FF;
+  border-color: #C12126FF;
+}
+
+.btn-outline-danger:hover {
+  background-color: #AA1D22FF;
+  border-color: #AA1D22FF;
+  color: white;
+}
+
+/* Loading state */
+.spinner-border {
+  width: 2rem;
+  height: 2rem;
+}
+
+/* Custom modal styles for delete confirmation */
+.delete-modal .modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.delete-modal .modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1001;
+  padding: 2rem;
+}
+
+.delete-modal-content {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+.delete-modal .modal-body {
+  padding: 2rem 2rem 1.5rem 2rem;
+}
+
+.delete-modal .modal-footer {
+  padding: 0 2rem 2rem 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  border-top: none;
+}
+
+/* Delete Modal Text Styles */
+.delete-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0 0 1rem 0;
+}
+
+.delete-title.success {
+  color: #16a34a;
+}
+
+.delete-title.error {
+  color: #dc2626;
+}
+
+.delete-message {
+  font-size: 0.95rem;
+  color: #6b7280;
+  margin: 0 0 1rem 0;
+  line-height: 1.5;
+}
+
+.success-text {
+  color: #16a34a !important;
+}
+
+.error-text {
+  color: #dc2626 !important;
+}
+
+.book-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0;
+}
+
+/* Custom delete button styling */
+.delete-modal .btn-delete {
+  background-color: #DE3B40FF;
+  border-color: #DE3B40FF;
+}
+
+.delete-modal .btn-delete:hover:not(:disabled) {
+  background-color: #C12126FF;
+  border-color: #C12126FF;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .container-fluid {
+    padding: 0 1rem;
+  }
+
+  .btn-group .btn {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
+    margin-right: 0.25rem;
+  }
+
+  .table thead th,
+  .table tbody td {
+    padding: 0.75rem 1rem;
+  }
+
+  .d-flex.gap-2 {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .d-flex.gap-2 .btn {
+    padding: 0.6rem 1rem;
+  }
+
+  .filter-select {
+    min-width: 100%;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .delete-modal .modal-container {
+    padding: 1rem;
+  }
+
+  .delete-modal-content {
+    max-width: 90vw;
+  }
+
+  .delete-modal .modal-body {
+    padding: 1.5rem 1.5rem 1rem 1.5rem;
+  }
+
+  .delete-modal .modal-footer {
+    padding: 0 1.5rem 1.5rem 1.5rem;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .delete-modal .btn {
+    width: 100%;
+    min-width: auto;
+  }
+}

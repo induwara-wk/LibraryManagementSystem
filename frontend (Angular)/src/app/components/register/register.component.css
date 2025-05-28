@@ -1,0 +1,25 @@
+.card {
+  border: none;
+  border-radius: 10px;
+}
+
+.card-title {
+  color: #495057;
+}
+
+.form-control:focus {
+  border-color: #0d6efd;
+  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+
+.btn-primary {
+  color: #FFFFFFFF;
+  background: #636AE8FF;
+  border-color: #636AE8FF;
+}
+
+.btn-primary:hover {
+  color: #FFFFFFFF;
+  background: #4850E4FF;
+  border-color: #4850E4FF;
+}

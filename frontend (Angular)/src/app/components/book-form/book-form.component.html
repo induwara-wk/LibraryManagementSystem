@@ -1,122 +1,143 @@
-<div class="container py-4">
-  <div class="row justify-content-center">
-    <div class="col-md-8 col-lg-6">
+<div class="modal-backdrop" (click)="cancel()"></div>
 
-      <a routerLink="/books" class="text-decoration-none d-inline-flex align-items-center">
-        <i class="bi bi-arrow-left me-2"></i> Back to Books
-      </a>
+<div class="modal-container">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3 class="modal-title">{{ isEditMode ? 'Edit book' : 'Add a new book' }}</h3>
+    </div>
 
-      <div class="card border-light shadow-sm">
-        <div class="card-body p-4">
-          <h2 class="text-center mb-4">{{ isEditMode ? 'Update book' : 'Add a new book' }}</h2>
-
-          <div *ngIf="loading" class="text-center">
-            <div class="spinner-border text-primary" role="status">
-              <span class="visually-hidden">Loading...</span>
-            </div>
-          </div>
-
-          <div *ngIf="error" class="alert alert-danger">
-            {{ error }}
-          </div>
-
-          <form *ngIf="!loading" (ngSubmit)="onSubmit()" #bookForm="ngForm">
-            <div class="mb-3">
-
-              
-
-              <label for="title" class="form-label">Title</label>
-              <input 
-                type="text" 
-                class="form-control"
-                id="title" 
-                name="title"
-                placeholder="Enter book title..." 
-                [(ngModel)]="book.title" 
-                required 
-                #title="ngModel">
-              <div *ngIf="title.invalid && (title.dirty || title.touched)" class="text-danger mt-1 small">
-                Title is required.
-              </div>
-            </div>
-
-            <div class="mb-3">
-              <label for="author" class="form-label">Author</label>
-              <input 
-                type="text" 
-                class="form-control"
-                id="author" 
-                name="author"
-                placeholder="Enter author's name..." 
-                [(ngModel)]="book.author" 
-                required 
-                #author="ngModel">
-              <div *ngIf="author.invalid && (author.dirty || author.touched)" class="text-danger mt-1 small">
-                Author is required.
-              </div>
-            </div>
-
-            <div class="mb-3">
-              <label for="isbn" class="form-label">ISBN</label>
-              <input 
-                type="text" 
-                class="form-control" 
-                id="isbn" 
-                name="isbn"
-                placeholder="Enter ISBN..." 
-                [(ngModel)]="book.isbn" 
-                required 
-                #isbn="ngModel">
-              <div *ngIf="isbn.invalid && (isbn.dirty || isbn.touched)" class="text-danger mt-1 small">
-                ISBN is required.
-              </div>
-            </div>
-
-            <div class="mb-3">
-              <label for="publishedDate" class="form-label">Date Published</label>
-              <div class="input-group">
-                <input 
-                  type="date" 
-                  class="form-control" 
-                  id="publishedDate" 
-                  name="publishedDate"
-                  placeholder="Select the published date..." 
-                  [(ngModel)]="book.publishedDate">
-                <span class="input-group-text">
-                  <i class="bi bi-calendar"></i>
-                </span>
-              </div>
-            </div>
-
-            <div class="mb-3">
-              <label for="numberOfPages" class="form-label">Pages</label>
-              <input 
-                type="number" 
-                class="form-control" 
-                id="numberOfPages" 
-                name="numberOfPages"
-                placeholder="Enter number of pages..." 
-                [(ngModel)]="book.numberOfPages" 
-                min="1">
-            </div>
-
-            <div class="d-flex justify-content-end gap-2 mt-4">
-              <button 
-                type="button" 
-                class="btn btn-secondary" 
-                routerLink="/books">
-                Cancel
-              </button>
-              <button 
-                type="submit" 
-                class="btn btn-primary" 
-                [disabled]="bookForm.invalid">
-                {{ isEditMode ? 'Update' : 'Save' }}
-              </button>
-            </div>
-          </form>
+    <div class="modal-body">
+      <form (ngSubmit)="onSubmit()" #bookForm="ngForm">
+        <!-- Error Message -->
+        <div *ngIf="error" class="alert alert-danger">
+          {{ error }}
         </div>
-      </div>
+
+        <!-- Success Message -->
+        <div *ngIf="success" class="alert alert-success">
+          {{ success }}
+        </div>
+
+        <!-- Title -->
+        <div class="mb-3">
+          <label for="title" class="form-label">Title</label>
+          <input
+            type="text"
+            id="title"
+            class="form-control"
+            placeholder="Enter book title..."
+            [(ngModel)]="currentBook.title"
+            name="title"
+            required
+          >
+        </div>
+
+        <!-- Author -->
+        <div class="mb-3">
+          <label for="author" class="form-label">Author</label>
+          <input
+            type="text"
+            id="author"
+            class="form-control"
+            placeholder="Enter author's name..."
+            [(ngModel)]="currentBook.author"
+            name="author"
+            required
+          >
+        </div>
+
+        <!-- ISBN -->
+        <div class="mb-3">
+          <label for="isbn" class="form-label">ISBN</label>
+          <input
+            type="text"
+            id="isbn"
+            class="form-control"
+            placeholder="Enter ISBN..."
+            [(ngModel)]="currentBook.isbn"
+            name="isbn"
+            required
+          >
+        </div>
+
+        <!-- Date Published -->
+        <div class="mb-3">
+          <label for="publishedDate" class="form-label">Date Published</label>
+          <input
+            type="date"
+            id="publishedDate"
+            class="form-control"
+            [(ngModel)]="currentBook.publishedDate"
+            name="publishedDate"
+            required
+          >
+        </div>
+
+        <!-- Pages -->
+        <div class="mb-3">
+          <label for="pages" class="form-label">Pages</label>
+          <input
+            type="number"
+            id="pages"
+            class="form-control"
+            placeholder="Enter number of pages..."
+            [(ngModel)]="currentBook.numberOfPages"
+            name="numberOfPages"
+            required
+            min="1"
+          >
+        </div>
+
+        <!-- File upload -->
+        <div class="mb-3" *ngIf="isEditMode && currentBook.id">
+          <label for="fileInput" class="form-label">Upload PDF File</label>
+          <input
+            type="file"
+            id="fileInput"
+            class="form-control"
+            accept=".pdf"
+            (change)="onFileSelected($event)"
+          >
+          <div class="form-text">
+            <small class="text-muted">Only PDF files up to 10MB are allowed</small>
+          </div>
+        </div>
+
+        <!-- Upload button -->
+        <button
+          type="button"
+          class="btn btn-outline-primary w-100 mb-3"
+          *ngIf="isEditMode && currentBook.id && selectedFile"
+          (click)="uploadFile()"
+          [disabled]="uploadLoading"
+        >
+          <span *ngIf="uploadLoading" class="spinner-border spinner-border-sm me-2"></span>
+          <i *ngIf="!uploadLoading" class="fas fa-upload me-2"></i>
+          {{ uploadLoading ? 'Uploading...' : 'Upload PDF' }}
+        </button>
+
+        <!-- Upload new books -->
+        <div *ngIf="!isEditMode" class="alert alert-info">
+          <i class="fas fa-info-circle me-2"></i>
+          Save the book first to upload a PDF file.
+        </div>
+      </form>
+    </div>
+
+    <!-- Footer -->
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" (click)="cancel()">
+        Cancel
+      </button>
+      <button
+        type="button"
+        class="btn btn-primary"
+        (click)="onSubmit()"
+        [disabled]="loading"
+      >
+        <span *ngIf="loading" class="spinner-border spinner-border-sm me-2"></span>
+        {{ isEditMode ? 'Update' : 'Save' }}
+      </button>
     </div>
   </div>
 </div>

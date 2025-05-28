@@ -1,0 +1,102 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6 col-lg-5">
+      <div class="card border-0 shadow-sm">
+        <div class="card-body p-4">
+          <div class="text-center mb-4">
+            <h3 class="card-title mb-0">Create Account</h3>
+          </div>
+
+          <form (ngSubmit)="onSubmit()" #registerForm="ngForm">
+            <div class="mb-3">
+              <label for="username" class="form-label fw-medium">Username</label>
+              <input
+                type="text"
+                class="form-control"
+                id="username"
+                [(ngModel)]="username"
+                name="username"
+                required
+                minlength="3"
+                maxlength="20"
+                placeholder="Choose a username">
+            </div>
+
+            <div class="mb-3">
+              <label for="email" class="form-label fw-medium">Email Address</label>
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                [(ngModel)]="email"
+                name="email"
+                required
+                placeholder="Enter your email address">
+            </div>
+
+            <div class="mb-3">
+              <label for="password" class="form-label fw-medium">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="password"
+                [(ngModel)]="password"
+                name="password"
+                required
+                minlength="6"
+                placeholder="Create a password">
+            </div>
+
+            <div class="mb-3">
+              <label for="confirmPassword" class="form-label fw-medium">Confirm Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="confirmPassword"
+                [(ngModel)]="confirmPassword"
+                name="confirmPassword"
+                required
+                placeholder="Confirm your password">
+            </div>
+
+            <div class="mb-3">
+              <label for="role" class="form-label fw-medium">Account Type</label>
+              <select
+                class="form-select"
+                id="role"
+                [(ngModel)]="selectedRole"
+                name="role"
+                required>
+                <option *ngFor="let role of roles" [value]="role.value">
+                  {{ role.label }}
+                </option>
+              </select>
+            </div>
+
+            <div class="alert alert-danger" *ngIf="error">
+              <i class="fas fa-exclamation-triangle me-2"></i>{{ error }}
+            </div>
+
+            <div class="alert alert-success" *ngIf="success">
+              <i class="fas fa-check-circle me-2"></i>{{ success }}
+            </div>
+
+            <button
+              type="submit"
+              class="btn btn-primary w-100 py-2"
+              [disabled]="loading || !registerForm.form.valid">
+              <span *ngIf="loading" class="spinner-border spinner-border-sm me-2"></span>
+              {{ loading ? 'Creating account...' : 'Create Account' }}
+            </button>
+          </form>
+
+          <div class="text-center mt-4">
+            <p class="mb-0 text-muted">Already have an account?
+              <a routerLink="/login" class="text-decoration-none fw-medium">Sign in</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
